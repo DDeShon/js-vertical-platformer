@@ -6,3 +6,6 @@ canvas.height = 576;
 
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.fillStyle = "red";
+ctx.fillRect(200, 100, 100, 100);

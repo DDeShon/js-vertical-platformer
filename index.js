@@ -4,6 +4,15 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+class Player {
+  constructor() {
+    this.position = {
+      x: 0,
+      y: 0,
+    };
+  }
+}
+
 let y = 100;
 
 function animate() {

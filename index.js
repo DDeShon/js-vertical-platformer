@@ -9,3 +9,10 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 ctx.fillStyle = "red";
 ctx.fillRect(200, 100, 100, 100);
+
+function animate() {
+  window.requestAnimationFrame(animate);
+  console.log("go");
+}
+
+animate();

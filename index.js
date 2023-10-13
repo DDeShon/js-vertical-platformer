@@ -22,11 +22,16 @@ class Player {
   }
 }
 
+const player = new Player();
+
 function animate() {
   window.requestAnimationFrame(animate);
 
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  player.draw();
+  player.update();
 }
 
 animate();

@@ -5,11 +5,8 @@ canvas.width = 1024;
 canvas.height = 576;
 
 class Player {
-  constructor() {
-    this.position = {
-      x: 0,
-      y: 0,
-    };
+  constructor(position) {
+    this.position = position;
   }
 
   draw() {
@@ -18,11 +15,20 @@ class Player {
   }
 
   update() {
+    this.draw();
     this.position.y++;
   }
 }
 
-const player = new Player();
+const player = new Player({
+  x: 0,
+  y: 0,
+});
+
+const player2 = new Player({
+  x: 150,
+  y: 0,
+});
 
 function animate() {
   window.requestAnimationFrame(animate);
@@ -30,8 +36,8 @@ function animate() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  player.draw();
   player.update();
+  player2.update();
 }
 
 animate();

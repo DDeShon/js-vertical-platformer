@@ -52,17 +52,33 @@ function animate() {
 
   player.update();
   player2.update();
+
+  player.velocity.x = 0;
+  if (keys.d.pressed) {
+    player.velocity.x = 2;
+  } else if (keys.a.pressed) {
+    player.velocity.x = -2;
+  }
 }
+
+const keys = {
+  d: {
+    pressed: false,
+  },
+  a: {
+    pressed: false,
+  },
+};
 
 animate();
 
 window.addEventListener("keydown", (event) => {
   switch (event.key) {
     case "d":
-      player.velocity.x = 1;
+      keys.d.pressed = true;
       break;
     case "a":
-      player.velocity.x = -1;
+      keys.a.pressed = true;
       break;
     case "w":
       player.velocity.y = -10;
@@ -73,10 +89,10 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "d":
-      player.velocity.x = 0;
+      keys.d.pressed = false;
       break;
     case "a":
-      player.velocity.x = 0;
+      keys.a.pressed = false;
       break;
   }
 });

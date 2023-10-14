@@ -55,9 +55,9 @@ function animate() {
 
   player.velocity.x = 0;
   if (keys.d.pressed) {
-    player.velocity.x = 2;
+    player.velocity.x = 5;
   } else if (keys.a.pressed) {
-    player.velocity.x = -2;
+    player.velocity.x = -5;
   }
 }
 
@@ -81,7 +81,7 @@ window.addEventListener("keydown", (event) => {
       keys.a.pressed = true;
       break;
     case "w":
-      player.velocity.y = -10;
+      player.velocity.y = -15;
       break;
   }
 });

@@ -64,5 +64,19 @@ window.addEventListener("keydown", (event) => {
     case "a":
       player.velocity.x = -1;
       break;
+    case "w":
+      player.velocity.y = -10;
+      break;
+  }
+});
+
+window.addEventListener("keyup", (event) => {
+  switch (event.key) {
+    case "d":
+      player.velocity.x = 0;
+      break;
+    case "a":
+      player.velocity.x = 0;
+      break;
   }
 });

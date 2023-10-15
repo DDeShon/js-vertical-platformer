@@ -4,6 +4,11 @@ const ctx = canvas.getContext("2d");
 canvas.width = 1024;
 canvas.height = 576;
 
+const scaledCanvas = {
+  width: canvas.width / 4,
+  height: canvas.height / 4,
+};
+
 const gravity = 0.5;
 
 class Sprite {
@@ -79,6 +84,7 @@ function animate() {
 
   ctx.save();
   ctx.scale(4, 4);
+  ctx.translate(0, -background.image.height + scaledCanvas.height);
   background.update();
   ctx.restore();
 

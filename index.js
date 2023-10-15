@@ -77,7 +77,10 @@ function animate() {
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  ctx.save();
+  ctx.scale(4, 4);
   background.update();
+  ctx.restore();
 
   player.update();
   player2.update();

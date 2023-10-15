@@ -14,7 +14,14 @@ class Sprite {
   }
 
   draw() {
+    if (!this.image) {
+      return;
+    }
     ctx.drawImage(this.image, this.position.x, this.position.y);
+  }
+
+  update() {
+    this.draw();
   }
 }
 

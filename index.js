@@ -63,11 +63,21 @@ const player2 = new Player({
   y: 0,
 });
 
+const background = new Sprite({
+  position: {
+    x: 0,
+    y: 0,
+  },
+  imageSrc: "./img/background.png",
+});
+
 function animate() {
   window.requestAnimationFrame(animate);
 
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  background.update();
 
   player.update();
   player2.update();

@@ -7,8 +7,10 @@ canvas.height = 576;
 const gravity = 0.5;
 
 class Sprite {
-  constructor(position) {
+  constructor({ position, imageSrc }) {
     this.position = position;
+    this.image = new Image();
+    this.image.src = imageSrc;
   }
 
   draw() {

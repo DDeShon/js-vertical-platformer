@@ -9,6 +9,8 @@ const scaledCanvas = {
   height: canvas.height / 4,
 };
 
+const floorCollisions2D = [];
+
 const gravity = 0.5;
 
 class Sprite {

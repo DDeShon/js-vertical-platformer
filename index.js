@@ -15,21 +15,22 @@ for (let i = 0; i < floorCollisions.length; i += 36) {
 }
 
 const collisionBlocks = [];
-floorCollisions2D.forEach((row) => {
-  row.forEach((symbol) => {
+floorCollisions2D.forEach((row, y) => {
+  row.forEach((symbol, x) => {
     if (symbol === 202) {
-      console.log("draw a block here");
       collisionBlocks.push(
         new CollisionBlock({
           position: {
-            x: 0,
-            y: 0,
+            x: x * 16,
+            y: y * 16,
           },
         })
       );
     }
   });
 });
+
+console.log(collisionBlocks);
 
 const gravity = 0.5;
 
@@ -61,6 +62,9 @@ function animate() {
   ctx.scale(4, 4);
   ctx.translate(0, -background.image.height + scaledCanvas.height);
   background.update();
+  collisionBlocks.forEach((CollisionBlock) => {
+    CollisionBlock.update();
+  });
   ctx.restore();
 
   player.update();

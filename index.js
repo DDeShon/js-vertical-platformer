@@ -35,7 +35,21 @@ for (let i = 0; i < platformCollisions.length; i += 36) {
   platformCollisions2D.push(platformCollisions.slice(i, i + 36));
 }
 
-console.log(platformCollisions2D);
+const platformCollisionBlocks = [];
+platformCollisions2D.forEach((row, y) => {
+  row.forEach((symbol, x) => {
+    if (symbol === 202) {
+      platformCollisionBlocks.push(
+        new CollisionBlock({
+          position: {
+            x: x * 16,
+            y: y * 16,
+          },
+        })
+      );
+    }
+  });
+});
 
 const gravity = 0.5;
 
@@ -68,6 +82,9 @@ function animate() {
   ctx.translate(0, -background.image.height + scaledCanvas.height);
   background.update();
   collisionBlocks.forEach((CollisionBlock) => {
+    CollisionBlock.update();
+  });
+  platformCollisionBlocks.forEach((CollisionBlock) => {
     CollisionBlock.update();
   });
   ctx.restore();

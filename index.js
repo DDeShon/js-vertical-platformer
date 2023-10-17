@@ -30,7 +30,12 @@ floorCollisions2D.forEach((row, y) => {
   });
 });
 
-console.log(collisionBlocks);
+const platformCollisions2D = [];
+for (let i = 0; i < platformCollisions.length; i += 36) {
+  platformCollisions2D.push(platformCollisions.slice(i, i + 36));
+}
+
+console.log(platformCollisions2D);
 
 const gravity = 0.5;
 

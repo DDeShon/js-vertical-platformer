@@ -3,7 +3,7 @@ class Sprite {
     this.position = position;
     this.image = new Image();
     this.image.onload = () => {
-      this.width = this.image.width;
+      this.width = this.image.width / this.frameRate;
       this.height = this.image.height;
     };
     this.image.src = imageSrc;
@@ -32,7 +32,7 @@ class Sprite {
       cropbox.height,
       this.position.x,
       this.position.y,
-      this.width / this.frameRate,
+      this.width,
       this.height
     );
   }

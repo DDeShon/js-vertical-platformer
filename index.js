@@ -58,11 +58,6 @@ const player = new Player({
   y: 0,
 });
 
-const player2 = new Player({
-  x: 150,
-  y: 0,
-});
-
 const background = new Sprite({
   position: {
     x: 0,
@@ -90,7 +85,6 @@ function animate() {
   ctx.restore();
 
   player.update();
-  player2.update();
 
   player.velocity.x = 0;
   if (keys.d.pressed) {

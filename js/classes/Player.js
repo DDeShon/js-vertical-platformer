@@ -6,8 +6,6 @@ class Player extends Sprite {
       x: 0,
       y: 1,
     };
-    this.width = 100 / 4;
-    this.height = 100 / 4;
     this.collisionBlocks = collisionBlocks;
   }
 

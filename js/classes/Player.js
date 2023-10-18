@@ -17,12 +17,12 @@ class Player {
 
   update() {
     this.draw();
+
     this.position.x += this.velocity.x;
+  }
+
+  applyGravity() {
     this.position.y += this.velocity.y;
-    if (this.position.y + this.height + this.velocity.y < canvas.height) {
-      this.velocity.y += gravity;
-    } else {
-      this.velocity.y = 0;
-    }
+    this.velocity.y += gravity;
   }
 }

@@ -1,4 +1,4 @@
-class Player {
+class Player extends Sprite {
   constructor({ position, collisionBlocks }) {
     this.position = position;
     this.velocity = {

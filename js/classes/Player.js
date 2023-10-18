@@ -5,8 +5,8 @@ class Player {
       x: 0,
       y: 1,
     };
-    this.width = 100;
-    this.height = 100;
+    this.width = 100 / 4;
+    this.height = 100 / 4;
     this.collisionBlocks = collisionBlocks;
   }
 
@@ -38,7 +38,10 @@ class Player {
           object2: collisionBlock,
         })
       ) {
-        console.log("we are colliding");
+        if (this.velocity.y > 0) {
+          this.velocity.y = 0;
+          this.position.y = collisionBlock.position.y - this.height;
+        }
       }
     }
   }

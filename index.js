@@ -55,7 +55,7 @@ const gravity = 0.5;
 
 const player = new Player({
   position: {
-    x: 500,
+    x: 100,
     y: 0,
   },
   collisionBlocks,
@@ -85,8 +85,6 @@ function animate() {
   platformCollisionBlocks.forEach((CollisionBlock) => {
     CollisionBlock.update();
   });
-  ctx.restore();
-
   player.update();
 
   player.velocity.x = 0;
@@ -95,6 +93,7 @@ function animate() {
   } else if (keys.a.pressed) {
     player.velocity.x = -5;
   }
+  ctx.restore();
 }
 
 const keys = {

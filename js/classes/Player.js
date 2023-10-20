@@ -9,8 +9,8 @@ class Player extends Sprite {
     this.collisionBlocks = collisionBlocks;
     this.hitbox = {
       position: {
-        x: 0,
-        y: 0,
+        x: this.position.x,
+        y: this.position.y,
       },
       width: 10,
       height: 10,
@@ -19,6 +19,7 @@ class Player extends Sprite {
 
   update() {
     this.updateFrames();
+    this.updateHitbox();
     ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     this.draw();
@@ -27,6 +28,17 @@ class Player extends Sprite {
     this.checkForHorizontalCollisions();
     this.applyGravity();
     this.checkForVerticalCollisions();
+  }
+
+  updateHitbox() {
+    this.hitbox = {
+      position: {
+        x: this.position.x,
+        y: this.position.y,
+      },
+      width: 10,
+      height: 10,
+    };
   }
 
   checkForHorizontalCollisions() {

@@ -48,7 +48,7 @@ class Player extends Sprite {
         x: this.position.x + 34,
         y: this.position.y + 25,
       },
-      width: 15,
+      width: 14,
       height: 28,
     };
   }

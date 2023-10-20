@@ -7,6 +7,14 @@ class Player extends Sprite {
       y: 1,
     };
     this.collisionBlocks = collisionBlocks;
+    this.hitbox = {
+      position: {
+        x: 0,
+        y: 0,
+      },
+      width: 10,
+      height: 10,
+    };
   }
 
   update() {

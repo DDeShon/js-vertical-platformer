@@ -20,8 +20,20 @@ class Player extends Sprite {
   update() {
     this.updateFrames();
     this.updateHitbox();
+
+    // draws out the image
     ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+    // draws out the hitbox
+    ctx.fillStyle = "rgba(255, 0, 0, 0.2)";
+    ctx.fillRect(
+      this.hitbox.position.x,
+      this.hitbox.position.y,
+      this.hitbox.width,
+      this.hitbox.height
+    );
+
     this.draw();
 
     this.position.x += this.velocity.x;

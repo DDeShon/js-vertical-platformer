@@ -108,6 +108,7 @@ function animate() {
     player.switchSprite("Run");
     player.velocity.x = 5;
   } else if (keys.a.pressed) {
+    player.switchSprite("RunLeft");
     player.velocity.x = -5;
   }
   ctx.restore();
@@ -141,9 +142,11 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "d":
+      player.switchSprite("Idle");
       keys.d.pressed = false;
       break;
     case "a":
+      player.switchSprite("Idle");
       keys.a.pressed = false;
       break;
   }

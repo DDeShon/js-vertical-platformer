@@ -1,5 +1,12 @@
 class Player extends Sprite {
-  constructor({ position, collisionBlocks, imageSrc, frameRate, scale = 0.5 }) {
+  constructor({
+    position,
+    collisionBlocks,
+    imageSrc,
+    frameRate,
+    scale = 0.5,
+    animations,
+  }) {
     super({ imageSrc, frameRate, scale });
     this.position = position;
     this.velocity = {
@@ -15,6 +22,7 @@ class Player extends Sprite {
       width: 10,
       height: 10,
     };
+    this.animations = animations;
   }
 
   update() {

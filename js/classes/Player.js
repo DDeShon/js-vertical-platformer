@@ -33,6 +33,10 @@ class Player extends Sprite {
     }
   }
 
+  switchSprite(key) {
+    this.image = this.animations[key];
+  }
+
   update() {
     this.updateFrames();
     this.updateHitbox();

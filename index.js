@@ -105,6 +105,7 @@ function animate() {
 
   player.velocity.x = 0;
   if (keys.d.pressed) {
+    player.switchSprite("Run");
     player.velocity.x = 5;
   } else if (keys.a.pressed) {
     player.velocity.x = -5;

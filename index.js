@@ -92,6 +92,16 @@ const player = new Player({
       frameRate: 2,
       frameBuffer: 3,
     },
+    Fall: {
+      imageSrc: "./img/warrior/Fall.png",
+      frameRate: 2,
+      frameBuffer: 3,
+    },
+    FallLeft: {
+      imageSrc: "./img/warrior/FallLeft.png",
+      frameRate: 2,
+      frameBuffer: 3,
+    },
   },
 });
 
@@ -128,6 +138,14 @@ function animate() {
   } else if (keys.a.pressed) {
     player.switchSprite("RunLeft");
     player.velocity.x = -2;
+  } else if (player.velocity.y === 0) {
+    player.switchSprite("Idle");
+  }
+
+  if (player.velocity.y < 0) {
+    player.switchSprite("Jump");
+  } else if (player.velocity.y > 0) {
+    player.switchSprite("Fall");
   }
 
   ctx.restore();

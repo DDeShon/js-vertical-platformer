@@ -38,6 +38,8 @@ class Player extends Sprite {
       return;
     } else {
       this.image = this.animations[key].image;
+      this.frameBuffer = this.animations[key].frameBuffer;
+      this.frameRate = this.animations[key].frameRate;
     }
   }
 

@@ -75,12 +75,22 @@ const player = new Player({
     Run: {
       imageSrc: "./img/warrior/Run.png",
       frameRate: 8,
-      frameBuffer: 7,
+      frameBuffer: 5,
     },
     RunLeft: {
       imageSrc: "./img/warrior/RunLeft.png",
       frameRate: 8,
-      frameBuffer: 7,
+      frameBuffer: 5,
+    },
+    Jump: {
+      imageSrc: "./img/warrior/Jump.png",
+      frameRate: 2,
+      frameBuffer: 3,
+    },
+    JumpLeft: {
+      imageSrc: "./img/warrior/JumpLeft.png",
+      frameRate: 2,
+      frameBuffer: 3,
     },
   },
 });
@@ -114,10 +124,10 @@ function animate() {
   player.velocity.x = 0;
   if (keys.d.pressed) {
     player.switchSprite("Run");
-    player.velocity.x = 5;
+    player.velocity.x = 2;
   } else if (keys.a.pressed) {
     player.switchSprite("RunLeft");
-    player.velocity.x = -5;
+    player.velocity.x = -2;
   }
 
   ctx.restore();

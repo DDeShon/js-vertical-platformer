@@ -65,14 +65,22 @@ const player = new Player({
     Idle: {
       imageSrc: "./img/warrior/Idle.png",
       frameRate: 8,
+      frameBuffer: 3,
+    },
+    IdleLeft: {
+      imageSrc: "./img/warrior/IdleLeft.png",
+      frameRate: 8,
+      frameBuffer: 3,
     },
     Run: {
       imageSrc: "./img/warrior/Run.png",
       frameRate: 8,
+      frameBuffer: 7,
     },
     RunLeft: {
       imageSrc: "./img/warrior/RunLeft.png",
       frameRate: 8,
+      frameBuffer: 7,
     },
   },
 });
@@ -110,9 +118,8 @@ function animate() {
   } else if (keys.a.pressed) {
     player.switchSprite("RunLeft");
     player.velocity.x = -5;
-  } else if (player.velocity.y === 0) {
-    player.switchSprite("Idle");
   }
+
   ctx.restore();
 }
 
@@ -144,9 +151,11 @@ window.addEventListener("keydown", (event) => {
 window.addEventListener("keyup", (event) => {
   switch (event.key) {
     case "d":
+      player.switchSprite("Idle");
       keys.d.pressed = false;
       break;
     case "a":
+      player.switchSprite("IdleLeft");
       keys.a.pressed = false;
       break;
   }

@@ -66,6 +66,14 @@ const player = new Player({
       imageSrc: "./img/warrior/Idle.png",
       frameRate: 8,
     },
+    Run: {
+      imageSrc: "./img/warrior/Run.png",
+      frameRate: 8,
+    },
+    RunLeft: {
+      imageSrc: "./img/warrior/RunLeft.png",
+      frameRate: 8,
+    },
   },
 });
 

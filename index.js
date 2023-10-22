@@ -135,9 +135,11 @@ function animate() {
   if (keys.d.pressed) {
     player.switchSprite("Run");
     player.velocity.x = 2;
+    player.lastDirection = "right";
   } else if (keys.a.pressed) {
     player.switchSprite("RunLeft");
     player.velocity.x = -2;
+    player.lastDirection = "left";
   } else if (player.velocity.y === 0) {
     player.switchSprite("Idle");
   }

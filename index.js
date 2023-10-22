@@ -131,6 +131,7 @@ function animate() {
   });
   player.update();
 
+  // animate player movement left/right
   player.velocity.x = 0;
   if (keys.d.pressed) {
     player.switchSprite("Run");
@@ -148,6 +149,7 @@ function animate() {
     }
   }
 
+  // animate player jumps
   if (player.velocity.y < 0) {
     if (player.lastDirection === "right") {
       player.switchSprite("Jump");

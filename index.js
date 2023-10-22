@@ -141,11 +141,19 @@ function animate() {
     player.velocity.x = -2;
     player.lastDirection = "left";
   } else if (player.velocity.y === 0) {
-    player.switchSprite("Idle");
+    if (player.lastDirection === "right") {
+      player.switchSprite("Idle");
+    } else {
+      player.switchSprite("IdleLeft");
+    }
   }
 
   if (player.velocity.y < 0) {
-    player.switchSprite("Jump");
+    if (player.lastDirection === "right") {
+      player.switchSprite("Jump");
+    } else {
+      player.switchSprite("JumpLeft");
+    }
   } else if (player.velocity.y > 0) {
     if (player.lastDirection === "right") {
       player.switchSprite("Fall");

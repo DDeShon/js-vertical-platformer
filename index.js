@@ -145,7 +145,11 @@ function animate() {
   if (player.velocity.y < 0) {
     player.switchSprite("Jump");
   } else if (player.velocity.y > 0) {
-    player.switchSprite("Fall");
+    if (player.lastDirection === "right") {
+      player.switchSprite("Fall");
+    } else {
+      player.switchSprite("FallLeft");
+    }
   }
 
   ctx.restore();

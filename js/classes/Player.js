@@ -24,6 +24,7 @@ class Player extends Sprite {
     };
 
     this.animations = animations;
+    this.lastDirection = "right";
 
     for (let key in this.animations) {
       const image = new Image();
@@ -34,7 +35,7 @@ class Player extends Sprite {
   }
 
   switchSprite(key) {
-    if (this.image === this.animations[key]) {
+    if (this.image === this.animations[key] || !this.loaded) {
       return;
     } else {
       this.image = this.animations[key].image;
@@ -47,18 +48,18 @@ class Player extends Sprite {
     this.updateFrames();
     this.updateHitbox();
 
-    // draws out the image
-    ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
-    ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    // // draws out the image
+    // ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
+    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
 
-    // draws out the hitbox
-    ctx.fillStyle = "rgba(255, 0, 0, 0.2)";
-    ctx.fillRect(
-      this.hitbox.position.x,
-      this.hitbox.position.y,
-      this.hitbox.width,
-      this.hitbox.height
-    );
+    // // draws out the hitbox
+    // ctx.fillStyle = "rgba(255, 0, 0, 0.2)";
+    // ctx.fillRect(
+    //   this.hitbox.position.x,
+    //   this.hitbox.position.y,
+    //   this.hitbox.width,
+    //   this.hitbox.height
+    // );
 
     this.draw();
 

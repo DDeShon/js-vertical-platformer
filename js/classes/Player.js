@@ -67,6 +67,15 @@ class Player extends Sprite {
     };
   }
 
+  shouldPanCameraToTheLeft() {
+    const cameraboxRightSide = this.camerabox.position.x + this.camerabox.width;
+    const scaledDownCanvasWidth = canvas.width / 4;
+
+    if (cameraboxRightSide >= scaledDownCanvasWidth) {
+      console.log("translate to the left");
+    }
+  }
+
   update() {
     this.updateFrames();
     this.updateHitbox();

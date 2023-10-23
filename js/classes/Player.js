@@ -38,6 +38,7 @@ class Player extends Sprite {
     if (this.image === this.animations[key].image || !this.loaded) {
       return;
     } else {
+      this.currentFrame = 0;
       this.image = this.animations[key].image;
       this.frameBuffer = this.animations[key].frameBuffer;
       this.frameRate = this.animations[key].frameRate;
@@ -47,19 +48,6 @@ class Player extends Sprite {
   update() {
     this.updateFrames();
     this.updateHitbox();
-
-    // // draws out the image
-    // ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
-    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
-
-    // // draws out the hitbox
-    // ctx.fillStyle = "rgba(255, 0, 0, 0.2)";
-    // ctx.fillRect(
-    //   this.hitbox.position.x,
-    //   this.hitbox.position.y,
-    //   this.hitbox.width,
-    //   this.hitbox.height
-    // );
 
     this.draw();
 

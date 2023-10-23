@@ -144,7 +144,7 @@ class Player extends Sprite {
       const platformCollisionBlock = this.platformCollisionBlocks[i];
 
       if (
-        collision({
+        platformCollision({
           object1: this.hitbox,
           object2: platformCollisionBlock,
         })

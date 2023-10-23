@@ -45,6 +45,7 @@ platformCollisions2D.forEach((row, y) => {
             x: x * 16,
             y: y * 16,
           },
+          height: 4,
         })
       );
     }

@@ -52,7 +52,7 @@ platformCollisions2D.forEach((row, y) => {
   });
 });
 
-const gravity = 0.5;
+const gravity = 0.1;
 
 const player = new Player({
   position: {
@@ -189,7 +189,7 @@ window.addEventListener("keydown", (event) => {
       keys.a.pressed = true;
       break;
     case "w":
-      player.velocity.y = -8;
+      player.velocity.y = -4;
       break;
   }
 });

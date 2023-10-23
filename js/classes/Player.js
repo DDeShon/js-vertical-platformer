@@ -34,6 +34,15 @@ class Player extends Sprite {
 
       this.animations[key].image = image;
     }
+
+    this.camerabox = {
+      position: {
+        x: this.position.x,
+        y: this.position.y,
+      },
+      width: 200,
+      height: 80,
+    };
   }
 
   switchSprite(key) {
@@ -47,9 +56,29 @@ class Player extends Sprite {
     }
   }
 
+  updateCameraBox() {
+    this.camerabox = {
+      position: {
+        x: this.position.x,
+        y: this.position.y,
+      },
+      width: 200,
+      height: 80,
+    };
+  }
+
   update() {
     this.updateFrames();
     this.updateHitbox();
+    this.updateCameraBox();
+
+    ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+    ctx.fillRect(
+      this.camerabox.position.x,
+      this.camerabox.position.y,
+      this.camerabox.width,
+      this.camerabox.height
+    );
 
     this.draw();
 

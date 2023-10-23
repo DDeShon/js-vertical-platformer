@@ -67,6 +67,15 @@ class Player extends Sprite {
     };
   }
 
+  checkForHorizontalCanvasCollision() {
+    if (
+      this.hitbox.position.x + this.hitbox.width + this.velocity.x >=
+      background.image.width
+    ) {
+      this.velocity.x = 0;
+    }
+  }
+
   shouldPanCameraToTheLeft({ canvas, camera }) {
     const cameraboxRightSide = this.camerabox.position.x + this.camerabox.width;
     const scaledDownCanvasWidth = canvas.width / 4;
@@ -79,6 +88,15 @@ class Player extends Sprite {
       cameraboxRightSide >=
       scaledDownCanvasWidth + Math.abs(camera.position.x)
     ) {
+      camera.position.x -= this.velocity.x;
+    }
+  }
+  shouldPanCameraToTheRight({ canvas, camera }) {
+    if (this.camerabox.position.x <= 0) {
+      return;
+    }
+
+    if (this.camerabox.position.x <= Math.abs(camera.position.x)) {
       camera.position.x -= this.velocity.x;
     }
   }

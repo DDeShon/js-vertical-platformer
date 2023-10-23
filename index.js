@@ -141,6 +141,8 @@ function animate() {
   platformCollisionBlocks.forEach((CollisionBlock) => {
     CollisionBlock.update();
   });
+
+  player.checkForHorizontalCanvasCollision();
   player.update();
 
   // animate player movement left/right
@@ -154,6 +156,7 @@ function animate() {
     player.switchSprite("RunLeft");
     player.velocity.x = -2;
     player.lastDirection = "left";
+    player.shouldPanCameraToTheRight({ canvas, camera });
   } else if (player.velocity.y === 0) {
     if (player.lastDirection === "right") {
       player.switchSprite("Idle");

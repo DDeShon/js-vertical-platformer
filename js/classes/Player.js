@@ -71,6 +71,10 @@ class Player extends Sprite {
     const cameraboxRightSide = this.camerabox.position.x + this.camerabox.width;
     const scaledDownCanvasWidth = canvas.width / 4;
 
+    if (cameraboxRightSide >= background.image.width) {
+      return;
+    }
+
     if (
       cameraboxRightSide >=
       scaledDownCanvasWidth + Math.abs(camera.position.x)

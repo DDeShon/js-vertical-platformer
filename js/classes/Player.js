@@ -35,7 +35,7 @@ class Player extends Sprite {
   }
 
   switchSprite(key) {
-    if (this.image === this.animations[key] || !this.loaded) {
+    if (this.image === this.animations[key].image || !this.loaded) {
       return;
     } else {
       this.image = this.animations[key].image;

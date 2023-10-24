@@ -134,12 +134,12 @@ function animate() {
   ctx.scale(4, 4);
   ctx.translate(camera.position.x, camera.position.y);
   background.update();
-  collisionBlocks.forEach((CollisionBlock) => {
-    CollisionBlock.update();
-  });
-  platformCollisionBlocks.forEach((CollisionBlock) => {
-    CollisionBlock.update();
-  });
+  //   collisionBlocks.forEach((CollisionBlock) => {
+  //     CollisionBlock.update();
+  //   });
+  //   platformCollisionBlocks.forEach((CollisionBlock) => {
+  //     CollisionBlock.update();
+  //   });
 
   player.checkForHorizontalCanvasCollision();
   player.update();

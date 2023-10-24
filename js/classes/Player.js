@@ -136,13 +136,13 @@ class Player extends Sprite {
     this.updateHitbox();
     this.updateCameraBox();
 
-    ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
-    ctx.fillRect(
-      this.camerabox.position.x,
-      this.camerabox.position.y,
-      this.camerabox.width,
-      this.camerabox.height
-    );
+    // ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+    // ctx.fillRect(
+    //   this.camerabox.position.x,
+    //   this.camerabox.position.y,
+    //   this.camerabox.width,
+    //   this.camerabox.height
+    // );
 
     this.draw();
 

@@ -167,6 +167,7 @@ function animate() {
 
   // animate player jumps
   if (player.velocity.y < 0) {
+    shouldPanCameraDown({ camera, canvas });
     if (player.lastDirection === "right") {
       player.switchSprite("Jump");
     } else {

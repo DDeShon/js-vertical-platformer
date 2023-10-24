@@ -113,15 +113,20 @@ class Player extends Sprite {
     }
   }
 
-  // shouldPanCameraUp({ canvas, camera }) {
-  //   // if (this.camerabox.position.x <= 0) {
-  //   //   return;
-  //   // }
+  shouldPanCameraUp({ canvas, camera }) {
+    // if (this.camerabox.position.x <= 0) {
+    //   return;
+    // }
 
-  //   if (this.camerabox.position.y >= Math.abs(camera.position.y)) {
-  //     camera.position.y -= this.velocity.y;
-  //   }
-  // }
+    const scaledCanvasHeight = canvas.height / 4;
+
+    if (
+      this.camerabox.position.y + this.camerabox.height >=
+      Math.abs(camera.position.y) + scaledCanvasHeight
+    ) {
+      camera.position.y -= this.velocity.y;
+    }
+  }
 
   update() {
     this.updateFrames();

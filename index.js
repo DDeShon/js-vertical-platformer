@@ -115,10 +115,12 @@ const background = new Sprite({
   imageSrc: "./img/background.png",
 });
 
+const backgroundImageHeight = 432;
+
 const camera = {
   position: {
     x: 0,
-    y: 0,
+    y: -backgroundImageHeight + scaledCanvas.height,
   },
 };
 
@@ -130,10 +132,7 @@ function animate() {
 
   ctx.save();
   ctx.scale(4, 4);
-  ctx.translate(
-    camera.position.x,
-    -background.image.height + scaledCanvas.height
-  );
+  ctx.translate(camera.position.x, camera.position.y);
   background.update();
   collisionBlocks.forEach((CollisionBlock) => {
     CollisionBlock.update();

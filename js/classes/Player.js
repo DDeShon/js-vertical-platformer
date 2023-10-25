@@ -43,6 +43,8 @@ class Player extends Sprite {
       width: 200,
       height: 80,
     };
+
+    this.isOnGround;
   }
 
   switchSprite(key) {
@@ -136,14 +138,6 @@ class Player extends Sprite {
     this.updateHitbox();
     this.updateCameraBox();
 
-    // ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
-    // ctx.fillRect(
-    //   this.camerabox.position.x,
-    //   this.camerabox.position.y,
-    //   this.camerabox.width,
-    //   this.camerabox.height
-    // );
-
     this.draw();
 
     this.position.x += this.velocity.x;
@@ -152,6 +146,7 @@ class Player extends Sprite {
     this.applyGravity();
     this.updateHitbox();
     this.checkForVerticalCollisions();
+    this.checkForOnGround();
   }
 
   updateHitbox() {
@@ -202,6 +197,12 @@ class Player extends Sprite {
       this.velocity.y += gravity;
     }
     this.position.y += this.velocity.y;
+  }
+
+  checkForOnGround() {
+    if (this.velocity.y === 0) {
+      this.isOnGround = true;
+    }
   }
 
   checkForVerticalCollisions() {

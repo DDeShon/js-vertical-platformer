@@ -135,6 +135,7 @@ function animate() {
   ctx.translate(camera.position.x, camera.position.y);
   background.update();
 
+  player.checkForOnGround();
   player.checkForHorizontalCanvasCollision();
   player.update();
 
@@ -161,12 +162,14 @@ function animate() {
   // animate player jumps
   if (player.velocity.y < 0) {
     player.shouldPanCameraDown({ camera, canvas });
+    player.isOnGround = false;
     if (player.lastDirection === "right") {
       player.switchSprite("Jump");
     } else {
       player.switchSprite("JumpLeft");
     }
   } else if (player.velocity.y > 0) {
+    player.isOnGround = false;
     player.shouldPanCameraUp({ camera, canvas });
     if (player.lastDirection === "right") {
       player.switchSprite("Fall");
@@ -185,6 +188,9 @@ const keys = {
   a: {
     pressed: false,
   },
+  w: {
+    pressed: false,
+  },
 };
 
 animate();
@@ -198,7 +204,10 @@ window.addEventListener("keydown", (event) => {
       keys.a.pressed = true;
       break;
     case "w":
-      player.velocity.y = -8;
+      if (!keys.w.pressed && player.isOnGround) {
+        keys.w.pressed = true;
+        player.velocity.y = -8;
+      }
       break;
   }
 });
@@ -212,6 +221,9 @@ window.addEventListener("keyup", (event) => {
     case "a":
       player.switchSprite("IdleLeft");
       keys.a.pressed = false;
+      break;
+    case "w":
+      keys.w.pressed = false;
       break;
   }
 });

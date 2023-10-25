@@ -52,7 +52,7 @@ platformCollisions2D.forEach((row, y) => {
   });
 });
 
-const gravity = 0.1;
+const gravity = 0.5;
 
 const player = new Player({
   position: {
@@ -134,12 +134,6 @@ function animate() {
   ctx.scale(4, 4);
   ctx.translate(camera.position.x, camera.position.y);
   background.update();
-  //   collisionBlocks.forEach((CollisionBlock) => {
-  //     CollisionBlock.update();
-  //   });
-  //   platformCollisionBlocks.forEach((CollisionBlock) => {
-  //     CollisionBlock.update();
-  //   });
 
   player.checkForHorizontalCanvasCollision();
   player.update();
@@ -204,7 +198,7 @@ window.addEventListener("keydown", (event) => {
       keys.a.pressed = true;
       break;
     case "w":
-      player.velocity.y = -4;
+      player.velocity.y = -8;
       break;
   }
 });

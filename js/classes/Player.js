@@ -198,10 +198,9 @@ class Player extends Sprite {
   }
 
   applyGravity() {
-    // if (gravity >= 2) {
-    //   return;
-    // }
-    this.velocity.y += gravity;
+    if (this.velocity.y <= 4) {
+      this.velocity.y += gravity;
+    }
     this.position.y += this.velocity.y;
   }
 

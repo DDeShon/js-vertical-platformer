@@ -206,7 +206,7 @@ window.addEventListener("keydown", (event) => {
     case "w":
       if (!keys.w.pressed && player.isOnGround) {
         keys.w.pressed = true;
-        player.velocity.y = -8;
+        player.velocity.y = -9;
       }
       break;
   }
